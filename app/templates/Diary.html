@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/menu.css">
+
+    <!-- Main Style Sheet -->
+    <!-- <link rel="stylesheet" href="../static/css/diario.css" /> -->
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+      integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q"
+      crossorigin="anonymous"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ url_for('home') }}">SentiMind</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('Diary') }}" Target="_blank">Diario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('Phrases') }}" Target="_blank">Frases</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('Conversations') }}" Target="_blank">Conversaciones</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <header><h1 class="title">My Personal Journal</h1></header>
+
+  <!-- Journal Entry Section -->
+  <section class="section journal-section">
+    <div class="container">
+      <div class="container-row container-row-journal">
+        <div class="container-item container-item-journal">
+          <form id="entryForm" action="">
+            <label for="entry-title" class="journal-label">Entry Title</label>
+            <input
+              type="text"
+              name="entry-title"
+              id="entry-title"
+              class="entry-text-title"
+              placeholder="Name of entry ✏️"
+            />
+            <label for="entry" class="journal-label">Today's Entry</label>
+            <textarea
+              name="daily-entry"
+              id="entry"
+              class="entry-text-box"
+              placeholder="What's on your mind today? 💭"
+            ></textarea>
+            <button class="btn-main entry-submit-btn" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journal Entry Results -->
+  <section class="section sectionEntryResults" id="entryResultsSection">
+    <div class="container">
+      <div class="container-row entryResultRow"></div>
+    </div>
+  </section>
+
+  <!-- <script src="../static/js/index.js"></script> -->
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

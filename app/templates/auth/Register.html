@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <!--
+// v0 by Vercel.
+// https://v0.dev/t/A6lFE1l484Z
+-->
+    <div
+      class="mx-auto max-w-md space-y-6 rounded-lg border bg-card text-card-foreground shadow-sm"
+    >
+      <div class="flex flex-col space-y-1.5 p-6">
+        <h1 class="text-4xl font-bold">Register</h1>
+        <p class="text-sm text-muted-foreground">
+          Enter your information to create an account
+        </p>
+      </div>
+      <div class="p-6 space-y-4">
+        <div class="space-y-2">
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="username"
+          >
+            Username </label
+          ><input
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="username"
+            placeholder="@"
+            required=""
+          />
+        </div>
+        <div class="space-y-2">
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="email"
+          >
+            Email </label
+          ><input
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="email"
+            placeholder="m@example.com"
+            required=""
+            type="email"
+          />
+        </div>
+        <div class="space-y-2">
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for="password"
+          >
+            Password </label
+          ><input
+            class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            id="password"
+            required=""
+            type="password"
+          />
+        </div>
+        <button
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full bg-gray-900 text-gray-50 hover:bg-gray-800"
+          type="submit"
+        >
+          Register
+        </button>
+        <div
+          data-orientation="horizontal"
+          role="none"
+          class="shrink-0 bg-gray-100 h-[1px] w-full my-8"
+        ></div>
+        <button
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full bg-blue-500 text-white hover:bg-blue-600"
+          href="/login"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-5 w-5 mr-2"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="12" r="4"></circle>
+            <line x1="21.17" x2="12" y1="8" y2="8"></line>
+            <line x1="3.95" x2="8.54" y1="6.06" y2="14"></line>
+            <line x1="10.88" x2="15.46" y1="21.94" y2="14"></line>
+          </svg>
+          Login with Google</button
+        ><a
+          class="block text-center text-sm text-gray-500 dark:text-gray-400 underline mt-4"
+          href="{{ url_for('Login') }}"
+        >
+          Already have an account? Login here
+        </a>
+      </div>
+    </div>
+  </body>
+</html>

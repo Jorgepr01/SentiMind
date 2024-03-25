@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversaciones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/menu.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../static/css/conversaciones.css"/>
+    <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+
+  </head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="{{ url_for('home') }}" >SentiMind</a>
+      <button class="navbar-toggler text-white bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-white bg-light"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active bg-dark text-white" aria-current="page" href="{{ url_for('home') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-dark text-white" href="{{ url_for('Diary') }}" Target="_blank">Diary</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-dark text-white" href="{{ url_for('Phrases') }}" Target="_blank">Phrases</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-dark text-white" href="{{ url_for('Conversations') }}" Target="_blank">Conversations</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<!-- Barra lateral -->
+
+
+
+  <!-- Cuerpo -->
+  <div class="row container-fluid h-100 bg-dark text-white"> 
+    <div class="sidebar col-md-2">
+      <a class="list-group-item list-group-item-action bg-dark text-white ini">Conversation<i class="lni lni-pencil-alt"></i><a/>
+      <span href="#" class="list-group-item list-group-item-action bg-dark text-white">Previous Conversations</span>
+      <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Wow! What a day</a>
+      <a href="#" class="list-group-item list-group-item-action bg-dark text-white">¡¡¡AH!!!</a>
+      <a href="#" class="list-group-item list-group-item-action bg-dark text-white">Christmas :)</a>
+    </div>
+    <div class="row justify-content-center h-100 col-md">		
+      <div class="col-md-8 col-xl-11 chat">
+        <div class="card">
+          <div class="card-header msg_head">
+            <div class="d-flex bd-highlight">
+              <div class="img_cont">
+                <img src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png" class="rounded-circle user_img">
+                <span class="online_icon"></span>
+              </div>
+              <div class="user_info">
+                <span>Talk</span>
+                <p>tell me whatever</p>
+              </div>
+            </div>
+          </div>
+          <div id="messageFormeight" class="card-body msg_card_body">
+            
+            
+          </div>
+          <div class="card-footer">
+            <form id="messageArea" class="input-group">
+                              <input type="text" id="text" name="msg" placeholder="Type your message..." autocomplete="off" class="form-control type_msg" required/>
+              <div class="input-group-append">
+                <button type="submit" id="send" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- opcional -->
+<script>
+  function typeWriterEffect(text, element, callback) {
+    let i = 0;
+    const speed = 50; // velocidad en milisegundos
+
+    function typeWriter() {
+      if (i < text.length) {
+        element.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      } else {
+        if (callback) callback();
+      }
+    }
+    typeWriter();
+  }
+
+  // Función para desplazarte automáticamente al final del contenedor
+  function scrollToBottom() {
+    $("#messageFormeight").scrollTop($("#messageFormeight")[0].scrollHeight);
+  }
+
+  $(document).ready(function() {
+    $("#messageArea").on("submit", function(event) {
+      const date = new Date();
+      const hour = date.getHours();
+      const minute = date.getMinutes();
+      const str_time = hour + ":" + minute;
+      var rawText = $("#text").val();
+
+      var userHtml = '<div class="d-flex justify-content-end mb-4"><div class="msg_cotainer_send">' + rawText + '<span class="msg_time_send">' + str_time + '</span></div><div class="img_cont_msg"><img src="https://i.ibb.co/d5b84Xw/Untitled-design.png" class="rounded-circle user_img_msg"></div></div>';
+      
+      $("#text").val("");
+      $("#messageFormeight").append(userHtml);
+      scrollToBottom();  // Desplazarte al final después de añadir el mensaje del usuario
+
+      $.ajax({
+        data: {
+          msg: rawText,    
+        },
+        type: "POST",
+        url: "/get-conv",
+      }).done(function(data) {
+        const botMessageContainer = $('<div class="d-flex justify-content-start mb-4"><div class="img_cont_msg"><img src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png" class="rounded-circle user_img_msg"></div><div class="msg_cotainer"><span class="botMessage"></span><span class="msg_time">' + str_time + '</span></div></div>');
+        
+        $("#messageFormeight").append(botMessageContainer);
+        scrollToBottom();  // Desplazarte al final después de añadir el mensaje del bot
+
+        typeWriterEffect(data, botMessageContainer.find(".botMessage")[0], function() {
+          botMessageContainer.find(".botMessage").text(data);
+        });
+      });
+
+      event.preventDefault();
+    });
+  });
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

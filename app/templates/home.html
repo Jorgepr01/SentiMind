@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SentiMind</title>
+  <!-- Enlace al CSS de Bootstrap -->
+  <link rel="stylesheet" href="../static/css/stylehome.css">
+  <!-- lineicons de iconos  -->
+  <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
+  <!-- fontawesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
+    <div class="container-fluid">
+      <a class="navbar-brand text-white" href="{{ url_for('home') }}" >SentiMind</a>
+      <button class="navbar-toggler text-white bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-white bg-light"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active bg-dark text-white" aria-current="page" href="{{ url_for('home') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-dark text-white" href="{{ url_for('Diary') }}" Target="_blank">Diary</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-dark text-white" href="{{ url_for('Phrases') }}" Target="_blank">Phrases</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link bg-dark text-white" href="{{ url_for('Conversations') }}" Target="_blank">Conversations</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Contenido principal -->
+  <div class="container mt-5 ">
+    <div class="row">
+      <div class="col-md-8 text-white">
+        <h1>Cuando necesites hablar ¡VEN! {{ current_user.username }}</h1>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+          make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+          typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+          sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+          PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
+
+      <div class="col-md-4 text-white">
+        <h3>Ultimas frases</h3>
+        <ul class="list-group ">
+          <div class="accordion " id="accordionExample">
+            <div class="accordion-item text-white bg-dark ">
+              <h2 class="accordion-header text-white bg-dark ">
+                <button class="accordion-button text-white bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  Frase Item #1
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>This is the first item's accordion body.</strong> It's also worth noting that just about any
+                  HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item  text-white bg-dark">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed  text-white bg-dark" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Frase Item #2
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>This is the first item's accordion body.</strong> It's also worth noting that just about any
+                  HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item  text-white bg-dark">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed  text-white bg-dark" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Frase Item #3
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <strong>This is the first item's accordion body.</strong> It's also worth noting that just about any
+                  HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                </div>
+              </div>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <main>
+
+    <h1 class=" text-white bg-dark">DIRECCION DE TRANSFORMACION</h1>
+    <div class="container__box">
+      <a href="{{ url_for('Conversations') }}" Target="_blank">
+        <div class="box text-white bg-dark">
+
+          <!--lineicons de iconos-->
+          <i class="lni lni-book"></i>
+          <h5>Conversaciones</h5>
+          <h4>Conversaciones</h4>
+
+        </div>
+      </a>
+
+      <a href="{{url_for('Phrases')}}" Target="_blank">
+        <div class="box text-white bg-dark">
+          <i class="lni lni-write"></i>
+          <h5>Frases</h5>
+          <h4>Frases </h4>
+        </div>
+      </a>
+  </main>
+
+
+
+  <!-- Pie de página -->
+  <footer class="bg-dark text-white p-3 foot">
+    <div class="container">
+      <p class="text-center mb-0">&copy; 2023 SentiMind sin derechos resevados.</p>
+      <a class="btn btn-secondary" href="{{ url_for('logout') }}">Logout</a>
+
+    </div>
+  </footer>
+
+  <!-- Scripts de Bootstrap 5 (opcional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

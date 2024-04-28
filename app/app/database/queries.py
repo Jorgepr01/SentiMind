@@ -39,13 +39,20 @@ class eventsTalk():
         self.connexion.connection.commit()
         # mysql.connection.commit()
         cur.close()
+    
+    def getLastIdTalk(self):
+        cur = self.connexion.connection.cursor()
+        cur.execute("SELECT `id_talk` FROM `talk` ORDER BY id_talk DESC LIMIT 1;")
+        idTalk = cur.fetchall()
+        cur.close()
+        return idTalk
 
 class eventsConv():
     def __init__(self,connexion):
         self.connexion =connexion
 
     def insetar(self,id_talk,question,answer,happy,day):
-        cur = mysql.connection.cursor()
+        cur = self.connexion.connection.cursor()
         cur.execute("INSERT INTO conversation(id_talk,question,answer,happy,day) VALUES (%s, %s, %s, %s, %s)",(id_talk,question,answer,happy,day))
         self.connexion.connection.commit()
         # mysql.connection.commit()
@@ -55,9 +62,9 @@ class eventsPhrase():
     def __init__(self,connexion):
         self.connexion =connexion
 
-    def insetar(self,id_talk,question,happy,day):
-        cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO phrases(id_talk,question,happy,day) VALUES (%s, %s, %s, %s, %s)",(id_talk,question,happy,day))
+    def insetar(self,id_talk,question,answer,happy,day):
+        cur = self.connexion.connection.cursor()
+        cur.execute("INSERT INTO phrases(id_talk,question,answer,happy,day) VALUES (%s, %s, %s, %s, %s)",(id_talk,question,answer,happy,day))
         self.connexion.connection.commit()
         # mysql.connection.commit()
         cur.close()

@@ -17,7 +17,7 @@ class AnalisisFrases(Analisador):
         felicidad_Cand=re.findall(r"[-?\d+\.?\d*]",resultado)
         felicidad_Cand=float("".join(felicidad_Cand))
         self.event.insetar(1,promt,resultado,felicidad_Cand,date,time)
-        print(felicidad_Cand)
+        # print(felicidad_Cand)
         self.event.close()
 
     def psicologo(self,calificador=5):
@@ -33,5 +33,5 @@ class AnalisisFrases(Analisador):
         felicidad_Cand=re.findall(r'\d+\.\d+|\d+',resultado)
         felicidad_Cand=float("".join(felicidad_Cand))
         self.event.insetar(1,promt,resultado,felicidad_Cand,date,time)
-        print(resultado)
+        # print(resultado)
         self.event.close()

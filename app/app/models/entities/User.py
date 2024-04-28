@@ -1,6 +1,7 @@
 from werkzeug.security import check_password_hash,generate_password_hash #Crear password encriptados
 from flask_login import UserMixin# validar el user
 #Modelo logico del user y password
+#creo la clase User
 class User(UserMixin):
     def __init__(self,id,username,email,password) -> None:
         self.id= id
